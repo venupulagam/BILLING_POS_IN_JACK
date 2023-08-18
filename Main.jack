@@ -1,0 +1,115 @@
+class Main {
+    function void main() {
+        var Array a;
+        var Array b;
+        var String s;
+        var int Items, rate1,total;
+        var int i,j,q,i;
+        let a = Array.new(7);
+        let a[0] = "IDLY  ";
+        let a[1] = "VADA  ";
+        let a[2] = "DOSA  ";
+        let a[3] = "POORI ";
+        let a[4] = "TEA   ";
+        let a[5] = "WATER ";
+        let a[6] = "PONGAL";
+        let b = Array.new(7);
+        let b[0] = "10/-";
+        let b[1] = "20/-";
+        let b[2] = "30/-";
+        let b[3] = "40/-";
+        let b[4] = "10/-";
+        let b[5] = "20/-";
+        let b[6] = "80/-";
+        do Output.printString("          WECOME TO POTTA PENCHUDHAM RESTAURANT");
+        do Output.println();
+        do Output.printString("           ---- POTTA PENCHUDHAM FOOD MEMU ----");
+        do Output.println();
+        let i = 0;
+        while(i < 7){
+          do Output.printInt((i+1) );
+          do Output.printString(". ");
+          do Output.printString( a[i]);
+          do Output.printString("   ");
+          do Output.printString(b[i]);
+          do Output.println();
+          let i = i + 1;
+        }
+        do Output.println();
+        do Output.printString("                 --!! ARAMBIKALAMGULA !!--    ");
+        do Output.println();
+        let Items = Keyboard.readInt("Enter the number items you want: ");
+        let i = 0;
+        let total = 0;
+        while(i < Items){
+           let s = Keyboard.readLine("Enter the item name: ");
+           let q = Keyboard.readInt("Quantity of the items: ");
+           let j = 0;
+           while(j < q){
+             let rate1 = Main.rate(s);
+             let total = total + rate1;
+             let j = j + 1;
+           }
+           let i = i + 1;
+        }
+        do Output.printString("THE TOTAL AMOUNT OF THE BILL IS: ");
+        do Output.printInt(total);
+        do Output.println();
+        do Output.printString("YOU CAN PAY WITH CASH/ CARD/ UPI");
+        do Output.println();
+        do Output.printString("                  THANK YOU AND VISIT AGAIN!");
+
+        return;
+  }
+  function boolean compareTo(String p, String q){
+       var boolean isCompare;
+       var Array array,arr;
+       var int j;
+       var int i;
+       if (~(p.length() = q.length())) {
+         return false;
+       }
+       let j = p.length();
+       let array = Array.new(j);
+       let arr = Array.new(j);
+       while(i < j){
+         let array[i] = p.charAt(i);
+         let arr[i] = q.charAt(i);
+         let i = i + 1;
+       }
+       let i = 0;
+       while(i < p.length()){
+         if(~(arr[i] = array[i])) {
+           return false;
+         }
+         let i = i + 1;
+       }
+       return true;
+   }
+  function int rate(String p){
+    var int k;
+    if(Main.compareTo(p, "IDLY")){
+      let k = 10;
+    }
+    if(Main.compareTo(p, "VADA")){
+      let k = 20;
+    }
+    if(Main.compareTo(p, "DOSA")){
+      let k = 30;
+    }
+    if(Main.compareTo(p, "POORI")){
+      let k = 40;
+    }
+    if(Main.compareTo(p, "TEA")){
+      let k = 10;
+    }
+    if(Main.compareTo(p, "WATER")){
+      let k = 20;
+    }
+    if(Main.compareTo(p, "PONGAL")){
+      let k = 80;
+    }
+
+    return k;
+  }
+}
